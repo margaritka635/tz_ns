@@ -39,14 +39,12 @@ export default {
         const response = await axios.get('https://status.neuralgeneration.com/api/currency');
         const rawRates = response.data;
 
-        // Сохраняем курсы валют к RUB
         this.rates = {
           "USD": rawRates["usd-rub"],
           "EUR": rawRates["eur-rub"],
           "RUB": 1
         };
 
-        // Вычисляем отображаемые курсы валют
         this.calculateDisplayedRates();
       } catch (error) {
         console.error("Ошибка получения курсов валют:", error);
